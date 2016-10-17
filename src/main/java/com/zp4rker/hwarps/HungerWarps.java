@@ -60,6 +60,8 @@ public class HungerWarps extends JavaPlugin {
 			}
 		case "warp":
 			return trans("&6Teleporting...");
+		case "warp noexist":
+			return trans("&4That warp does not exist!");
 		}
 		return "";
 	}
