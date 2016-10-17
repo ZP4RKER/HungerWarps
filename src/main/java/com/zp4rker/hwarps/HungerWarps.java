@@ -23,10 +23,10 @@ public class HungerWarps extends JavaPlugin {
 		Column name = new Column("name", DataType.STRING);
 		Column world = new Column("world", DataType.STRING);
 		Column x = new Column("x", DataType.FLOAT);
-		Column y = new Column("x", DataType.FLOAT);
-		Column z = new Column("x", DataType.FLOAT);
-		Column yaw = new Column("x", DataType.FLOAT);
-		Column pitch = new Column("x", DataType.FLOAT);
+		Column y = new Column("y", DataType.FLOAT);
+		Column z = new Column("z", DataType.FLOAT);
+		Column yaw = new Column("yaw", DataType.FLOAT);
+		Column pitch = new Column("pitch", DataType.FLOAT);
 		Table table = new Table("Warps", Arrays.asList(name, world, x, y, z, yaw, pitch));
 		db = new Database(this, "Warps", table);
 		if (db.getTables().get(0).getPrimaryKey().getName().equalsIgnoreCase("name")) {

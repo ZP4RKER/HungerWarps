@@ -1,5 +1,6 @@
 name: HungerWarps
 version: 1.0
+main: com.zp4rker.hwarps.HungerWarps
 description: A warping plugin that costs hunger levels
 commands:
   setwarp:

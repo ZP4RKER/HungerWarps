@@ -4,6 +4,8 @@
   <artifactId>com.zp4rker</artifactId>
   <version>1.0</version>
   
+  <name>HungerWarps</name>
+  
   <repositories>
         <repository>
             <id>spigotmc-repo</id>
