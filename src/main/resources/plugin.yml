@@ -1,3 +1,12 @@
 name: HungerWarps
 version: 1.0
 description: A warping plugin that costs hunger levels
+commands:
+  setwarp:
+    usage: /setwarp <name>
+    aliases: [sw, swarp]
+  delwarp:
+    usage: /delwarp <name>
+    aliases: [dw, dwarp]
+  warp:
+    aliases: [w]
