@@ -5,7 +5,9 @@ import java.util.Arrays;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.zp4rker.hwarps.cmd.DelWarpCommand;
 import com.zp4rker.hwarps.cmd.SetWarpCommand;
+import com.zp4rker.hwarps.cmd.WarpCommand;
 import com.zp4rker.localdb.Column;
 import com.zp4rker.localdb.DataType;
 import com.zp4rker.localdb.Database;
@@ -32,6 +34,8 @@ public class HungerWarps extends JavaPlugin {
 		}
 		// Register commands
 		getCommand("setwarp").setExecutor(new SetWarpCommand());
+		getCommand("warp").setExecutor(new WarpCommand());
+		getCommand("delwarp").setExecutor(new DelWarpCommand());
 	}
 	
 	public void onDisable() {
