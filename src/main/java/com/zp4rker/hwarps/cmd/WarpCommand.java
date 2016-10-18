@@ -36,9 +36,9 @@ public class WarpCommand implements CommandExecutor {
 			// Check if warp exists
 			Column name = new Column("name", DataType.STRING);
 			name.setValue(args[0]);
-			if (db.getTables().get(0).getExact(name).size() != 0) {
+			if (db.getTables().get(0).getExact(name) != null) {
 				player.sendMessage(m("warp"));
-				player.setFoodLevel(player.getFoodLevel() - 2);
+				player.setFoodLevel(player.getFoodLevel() - 4);
 				player.teleport(new Warp(args[0]).getLocation());
 			} else {
 				player.sendMessage(m("warp noexist"));

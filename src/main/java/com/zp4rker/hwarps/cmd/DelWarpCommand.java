@@ -28,9 +28,9 @@ public class DelWarpCommand implements CommandExecutor {
 			// Check if warp exists
 			Column name = new Column("name", DataType.STRING);
 			name.setValue(args[0]);
-			if (db.getTables().get(0).getExact(name).size() != 0) {
+			if (db.getTables().get(0).getExact(name) != null) {
 				new Warp(args[0]).delete();
-				sender.sendMessage(m("delete warp"));
+				sender.sendMessage(m("delete warp", args[0]));
 			} else {
 				sender.sendMessage(m("warp noexist"));
 			}

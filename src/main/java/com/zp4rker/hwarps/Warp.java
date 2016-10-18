@@ -20,9 +20,9 @@ public class Warp {
 	private float pitch;
 	
 	public Warp(String name) {
-		Column primaryKey = new Column("name", DataType.STRING);
+		Column primaryKey = new Column("name", DataType.STRING, 0);
 		primaryKey.setValue(name);
-		if (HungerWarps.db.getTables().get(0).getExact(primaryKey).size() != 0) {
+		if (HungerWarps.db.getTables().get(0).getExact(primaryKey) != null) {
 			for (Column column : HungerWarps.db.getTables().get(0).getExact(primaryKey)) {
 				switch(column.getName()) {
 				case "name":
@@ -32,13 +32,13 @@ public class Warp {
 					this.world = Bukkit.getWorld((String) column.getValue());
 					break;
 				case "x":
-					this.x = (Double) column.getValue();
+					this.x = Double.parseDouble(column.getValue() + "");
 					break;
 				case "y":
-					this.y = (Double) column.getValue();
+					this.y = Double.parseDouble(column.getValue() + "");
 					break;
 				case "z":
-					this.z = (Double) column.getValue();
+					this.z = Double.parseDouble(column.getValue() + "");
 					break;
 				case "yaw":
 					this.yaw = (Float) column.getValue();
@@ -150,7 +150,7 @@ public class Warp {
 		Column pitch = new Column("pitch", DataType.FLOAT);
 		pitch.setValue(this.pitch);
 		
-		if (HungerWarps.db.getTables().get(0).getExact(name).size() != 0) {
+		if (HungerWarps.db.getTables().get(0).getExact(name) != null) {
 			HungerWarps.db.getTables().get(0).update(name, Arrays.asList(world, x, y, z, yaw, pitch));
 			System.out.println("Updated warp: " + this.name);
 		} else {

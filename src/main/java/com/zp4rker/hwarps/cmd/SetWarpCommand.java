@@ -36,12 +36,15 @@ public class SetWarpCommand implements CommandExecutor {
 			
 			Column name = new Column("name", DataType.STRING);
 			name.setValue(args[0]);
-			new Warp(args[0]).saveToDatabase();
-			player.setFoodLevel(player.getFoodLevel() - 5);
-			if (db.getTables().get(0).getExact(name).size() == 0) {
+			player.setFoodLevel(player.getFoodLevel() - 10);
+			if (db.getTables().get(0).getExact(name) == null) {
 				player.sendMessage(m("create warp", args[0]));
+				Warp.createNew(args[0], player.getLocation()).saveToDatabase();
 			} else {
 				player.sendMessage(m("update warp", args[0]));
+				Warp warp = new Warp(args[0]);
+				warp.setLocation(player.getLocation());
+				warp.saveToDatabase();
 			}
 		}
 		return true;
